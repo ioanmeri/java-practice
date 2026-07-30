@@ -1,4 +1,4 @@
-## DateTime Notes
+## Format Notes
 
 - Remember that the parse() method of **DateFormat** and **NumberFormat** throws java.text.ParseException. 
   - So, it must either be declared in the throws clause of the main() method or the call to parse() must be wrapped in a try/catch block

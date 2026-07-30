@@ -1,8 +1,11 @@
 You need to know the following facts about enums:
 
-- Enum constructor is always private. You cannot make it public or protected. If an enum type has no constructor declarations, then a private constructor that takes no parameters is automatically provided.
+- Enum constructor is always private. 
+  - You cannot make it public or protected. 
+  - If an enum type has no constructor declarations, then a private constructor that takes no parameters is automatically provided.
 - An enum is implicitly final, which means you cannot extend it. For the same reason, it cannot be sealed.
-- You cannot extend an enum from another enum or class because an enum implicitly extends java.lang.Enum. But an enum can implement interfaces.
+- You cannot extend an enum from another enum or class because an enum implicitly extends java.lang.Enum. 
+  - But an enum can implement interfaces.
 - Since enum maintains exactly one instance of its constants, you cannot clone it. You cannot even override the clone method in an enum because java.lang.Enum makes it final.
 - Compiler provides an enum with two public static methods automatically - values() and valueOf(String). The values() method returns an array of its constants and valueOf() method tries to match the String argument exactly (i.e. case sensitive) with an enum constant and returns that constant if successful otherwise it throws java.lang.IllegalArgumentException.
 - By default, an enum's toString() prints the enum name but you can override it to print anything you want.

@@ -1,0 +1,23 @@
+Collections Framework
+│
+├── Collection (interface)
+│   │
+│   ├── List (interface)
+│   │   │
+│   │   ├── ArrayList (class)
+│   │   ├── LinkedList (class)
+│   │   └── Vector (class)
+│   │
+│   ├── Set (interface)
+│   │   ├── HashSet
+│   │   ├── LinkedHashSet
+│   │   └── TreeSet
+│   │
+│   └── Queue (interface)
+│       ├── PriorityQueue
+│       └── Deque
+│
+└── Map (interface)   <-- separate hierarchy
+├── HashMap
+├── TreeMap
+└── LinkedHashMap

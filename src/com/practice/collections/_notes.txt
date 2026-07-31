@@ -21,3 +21,28 @@ Collections Framework
 ├── HashMap
 ├── TreeMap
 └── LinkedHashMap
+
+
+---
+
+Collections & Generics
+│
+├── List
+│   ├── ArrayList
+│   ├── LinkedList
+│   └── Sorting
+│       ├── Comparable
+│       └── Comparator  ⭐
+│
+├── Set
+├── Map
+└── Generics
+
+---
+
+Streams & Lambdas
+│
+├── Functional Interfaces
+├── Method References
+├── sorted()
+└── Comparator.comparing()

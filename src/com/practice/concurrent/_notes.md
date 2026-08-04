@@ -56,40 +56,10 @@ public void run()
 
 ---
 
-### Synchronized
+### ScheduledExecutorService
 
-**Synchronized Class object**
+`ScheduledExecutorService` is specifically designed to execute tasks:
+- **After a given delay**
+- **At a fixed rate**
+- **With a fixed delay between executions**
 
-- Usually when protecting a static variable
-- `synchronized(SomeClass.class)` > Lock the Class object shared by all instances.
-
-**Synchronized Function**
-
-```java
-private static int threadcounter = 0;
-
-public synchronized void run()
-{
-    threadcounter++;
-    System.out.println(threadcounter);
-}
-```
-
-Now each thread locks its own object though — not enough, because each thread has a different TestClass instance.
-
-**Better Approach**
-
-```java
-public void run()
-{
-    synchronized(TestClass.class)
-    {
-        threadcounter++;
-        System.out.println(threadcounter);
-    }
-}
-```
-
-Now all threads use the same lock.
-
----

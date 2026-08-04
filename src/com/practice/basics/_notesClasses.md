@@ -2,9 +2,19 @@
 
 ### Constructors
 
-- Constructors should not specify a return value
-- The class has an implicit default constructor (auto-generated) if the class contains no constructor declarations.
+- Constructors have **no return type** (not even `void`)
+- May have any access modifier (`public`, `protected`, package-private, `private`)
+- must have a body
+- The class has an **implicit default constructor (auto-generated)** **if the class contains no constructor declarations**.
 - Parent constructors always execute before child constructors.
+- Protected constructor means
+  - It can be called from subclasses - even in different packages
+  - It can be called from classes in the same package
+- `public PortConnector(int port) throws IOException`
+  - This means **any subclass constructor** must declare
+    - **the same exception**: `throws IOException` **or**
+    - **a subclass**: `throws a subclass of IOException` **or**
+    - **no exception**: no `throws` clause _only if_ it handles the exception internally (i.e., wraps it).
 
 ---
 
@@ -42,5 +52,33 @@ class AA extends A {
     }
 }
 ```
+
+---
+
+### Inner Classes
+
+- Inner classes automatically have access to all members of the outer class, including private fields
+  - To access the outer class's field, you must qualify it `OuterClass.this.a`
+- `this` refers to the current `Inner` object.
+  - `this.a` is equivalent to: `Inner.this.a`
+
+---
+
+### Encapsulation
+
+Encapsulation generally means:
+
+- Make fields `private`
+- Expose behavior through methods
+- Keep related state consistent inside the class
+
+---
+
+### Overloading
+
+- Overloading of a method occurs when 
+  - the **name** of more than one methods **is exactly same** but 
+  - the **parameter lists are different**
+- You cannot have two methods with the same signature (i.e. same name and same parameter list) in the same class.
 
 ---

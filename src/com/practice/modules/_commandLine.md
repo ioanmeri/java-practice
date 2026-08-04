@@ -83,3 +83,12 @@ Each module must be in a directory whose name matches the module name.
 
 module-info.java must be inside that directory.
 
+---
+
+### jdeps
+
+- `jdeps -summary` reports **module dependencies**, not packages.
+  - The package `java.util` is inside the module: `java.base`
+
+---
+

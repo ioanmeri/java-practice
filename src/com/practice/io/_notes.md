@@ -84,3 +84,20 @@ public static void copy(String fileName1, String fileName2) throws Exception{
     }
 }   
 ```
+
+---
+
+### File
+
+- You can always create a File object whether or not an actual file or directory by that name exists
+
+---
+
+### IO Exceptions
+
+Remember that **most of the I/O operations** (such as opening a **stream on a file**, **reading or writing from/to a file**) 
+- throw `IOException`
+- `FileNotFoundException` is a subclass of `IOException` and `IndexOutOfBoundsException` is subclass of `RuntimeException`.
+- The code can be fixed by replacing FileNotFoundException | IndexOutOfBoundsException with IOException or by adding another catch block that catches IOException.
+
+---

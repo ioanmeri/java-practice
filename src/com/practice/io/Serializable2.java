@@ -1,4 +1,4 @@
-package com.practice.nio;
+package com.practice.io;
 
 import java.io.*;
 

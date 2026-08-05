@@ -1,5 +1,10 @@
 ## Notes Synchronized
 
+### Synchronized General Notes
+
+- When a synchronized method ends with a checked exception, the intrinsic lock held by the thread is released automatically
+
+---
 
 ### Synchronized Class object
 

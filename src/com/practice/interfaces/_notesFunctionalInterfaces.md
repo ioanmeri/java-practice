@@ -8,6 +8,9 @@ These six are the core functional interfaces used throughout Java’s functional
   - `Employee e = new Employee();`
   - `validateEmployee(e, e->e.age<10000)`
   - Valid: `validateEmployee(e, x->x.age<10000)`
+- A local variable used inside **a lambda**, **a local class**, **an anonymous class**
+  - must be `final` or
+  - **effectively final**
 
 ---
 

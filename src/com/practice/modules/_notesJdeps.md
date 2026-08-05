@@ -20,3 +20,10 @@ jdeps --module-path out out\moduleA\test\A.class
 ```
 
 ---
+
+### jdeps
+
+- `jdeps -summary` reports **module dependencies**, not packages.
+  - The package `java.util` is inside the module: `java.base`
+
+---

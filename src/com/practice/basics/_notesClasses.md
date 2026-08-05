@@ -15,6 +15,9 @@
     - **the same exception**: `throws IOException` **or**
     - **a subclass**: `throws a subclass of IOException` **or**
     - **no exception**: no `throws` clause _only if_ it handles the exception internally (i.e., wraps it).
+- If a subclass constructor does not explicitly call `super(...)`, Java automatically inserts it
+  - and if a superclass has a constructor, Java does not create **no no-argument constructor**
+  - **super** from the **subclass** without arguments **fails**
 
 ---
 

@@ -11,7 +11,21 @@
 - findFirst 
 - findAny
 
+---
 
 ## Collectors Notes
 
 - `Collectors.counting()` returns a Long, therefore, the type of the values in the map must be Long instead of Integer
+
+---
+
+### `takeWhile`
+
+`takeWhile` keeps elements **only until the first element that does not satisfy the predicate**.
+- Once it encounters a `false`, it **stops processing entirely**.
+
+```java
+Arrays.stream(Card.values()).takeWhile(c->c.isRed()).forEach(System.out::print);
+```
+
+---

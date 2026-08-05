@@ -82,3 +82,47 @@ Both extend Number, but neither is a subtype of the other.
   - or at the point of declaration
 
 ---
+
+### String
+
+- `intern()` returns the reference from the String Pool.
+  - "Give me the pooled version of this string."
+  - `String internedExamName = uniqueExamName.intern();`
+  - `new String()` always creates a new String object on the heap
+
+---
+
+### `null`
+
+- `null` is compatible with any reference type
+- So all three methods are applicable:
+  - `method(Object)`
+  - `method(IOException)`
+  - `method(FileNotFoundException)`
+
+```
+Object
+   │
+Exception
+   │
+IOException
+   │
+FileNotFoundException
+```
+
+the most specific is: `FileNotFoundException`
+
+---
+
+### Long
+
+- `long g = 012` is a valid octal number.
+
+---
+
+### Float
+
+- `float f = -123;` Implicit widening conversion will occur in this case.
+
+---
+

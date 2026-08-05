@@ -39,3 +39,23 @@ into it—you declare it with:
 
 > Use `? super T` when the method needs to add `T` into the collection.
 The collection is a consumer of `T`, so it must be declared with `? super T`.
+
+---
+
+### List CharSequence
+
+```java
+class Base{
+    public List<? super CharSequence> getList(int id){
+        return null;
+    }
+}
+```
+
+as meaning:
+
+```java
+List<CharSequence> // or
+List<Object>
+```
+

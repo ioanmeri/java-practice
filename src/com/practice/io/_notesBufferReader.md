@@ -25,6 +25,37 @@ You can reread the same section as many times as you want until the bookmark bec
 
 ---
 
+### BufferedReader constructor
+
+The constructor is:
+
+```java
+BufferedReader(Reader in)
+```
+
+Valid examples:
+
+```java
+BufferedReader handle =
+    new BufferedReader(new FileReader(fullFilePath));
+```
+
+```java
+BufferedReader handle =
+    new BufferedReader(
+        new FileReader(new File(fullFilePath))
+    );
+```
+
+and the `FileReader` construstor is
+
+```java
+new FileReader(String path)
+new FileReader(File file)
+```
+
+---
+
 ### Writer
 
 - A Reader can't be converted into a Writer or vice-versa. In other words, there is no way you can chain a Reader and a Writer together.

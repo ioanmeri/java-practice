@@ -45,5 +45,9 @@ t1.start(runnableInstance);
 
 Thread t2 = Thread.startVirtualThread(runnableInstance);
 ```
+or
 
+```
+Thread t = Thread.ofVirtual().unstarted(r);
+```
 ---

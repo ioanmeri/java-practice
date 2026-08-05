@@ -30,6 +30,7 @@
 
 ### General Notes
 
+- generics are invariant
 - lower‑bounded wildcards (? super) are not covariant.
   - you cannot narrow the return type.
 - wildcards (? super, ? extends) are invariant for overriding.

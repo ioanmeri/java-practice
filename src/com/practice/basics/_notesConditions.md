@@ -26,3 +26,18 @@ if (args[0].equals("open")) {
     }
 }
 ```
+
+---
+
+### Switch
+
+Java switch supports only:
+- byte
+- short
+- char
+- int
+- their wrappers (Byte, Short, Character, Integer)
+- String
+- enum
+
+---

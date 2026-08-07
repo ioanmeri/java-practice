@@ -36,8 +36,7 @@ BufferedReader(Reader in)
 Valid examples:
 
 ```java
-BufferedReader handle =
-    new BufferedReader(new FileReader(fullFilePath));
+BufferedReader handle = new BufferedReader(new FileReader(fullFilePath));
 ```
 
 ```java

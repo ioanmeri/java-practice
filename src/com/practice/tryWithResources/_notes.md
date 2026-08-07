@@ -1,3 +1,14 @@
+## General Notes
+
+
+The whole point of a `try-with-resource` statement is that whatever resource is specified in the try with resources block should be closed **as soon as the try block ends** 
+- (i.e. before the control goes to the catch or the finally block) irrespective of what happens in the try block.
+
+
+---
+
+### Try with Resources Notes
+
 You need to know the following points regarding try-with-resources statement for the exam:
 1. The resource class must implement java.lang.AutoCloseable interface. Many standard JDK classes such as java.io.FileInputStream implement the older (introduced in Java 1.5), java.io.Closeable interface, which was made to extend java.lang.AutoCloseable in Java 1.7.
 2. AutoCloseable has only one method - public void close() throws Exception.

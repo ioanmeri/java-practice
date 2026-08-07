@@ -15,12 +15,13 @@
 - skip()
 - ready()
 - close()
+- RandomAccessFile
 
 ---
 
 ### Why use InputStreamReader?
 
-`FileInputStream` reads bytes
+`FileInputStream` reads **bytes**
 
 Suppose your file contains:
 
@@ -50,11 +51,9 @@ isr.read();
 ### Classic IO
 
 ```java
-FileInputStream fis =
-        new FileInputStream("test.txt");
+FileInputStream fis = new FileInputStream("test.txt");
 
-InputStreamReader reader =
-        new InputStreamReader(fis);
+InputStreamReader reader = new InputStreamReader(fis);
 
 reader.read();
 reader.skip(2);
@@ -67,6 +66,20 @@ reader.ready();
 
 - `FileOutputStream(fileName2)` always overwrites the file
   - Unless you use the constructor with `true` (append mode), this call truncates the file to zero bytes before writing.
+- `OutputStream.write(int)` writes **the lowest 8 bits** of the integer.
+
+DataOutputStream provides methods such as
+
+- writeInt
+- writeChar and 
+- writeDouble 
+
+for writing complete value of the primitives to a file. 
+
+So if you want to write an **integer** to the file, you should use `writeInt(1)` in which case a file of size **4 bytes** will be created.
+
+You can read back the stored primitives using methods such as DataInputSream.readInt().
+
 
 **Example**
 
@@ -101,3 +114,26 @@ Remember that **most of the I/O operations** (such as opening a **stream on a fi
 - The code can be fixed by replacing FileNotFoundException | IndexOutOfBoundsException with IOException or by adding another catch block that catches IOException.
 
 ---
+
+### PrintWriter
+
+- `PrintWriter` writes **characters**, not bytes.
+  - OutputStream, `FileOutputStream` writes **raw bytes**.
+- The file size depends on the **default character encoding**.
+  - UTF-8 → 1 byte
+  - UTF-16 → 2 bytes
+- `PrintWriter` is never **flushed** or **closed** if it isn't declared as a resource
+
+**Example**
+
+
+```java
+OutputStream os = new FileOutputStream(name);
+var pw = new PrintWriter(os);
+pw.write(1);
+```
+
+writes the character whose **Unicode value is 1**
+
+---
+

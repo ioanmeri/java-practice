@@ -2,7 +2,14 @@
 
 ### Var
 
-- var declarations are allowed only for local variables (i.e. variables defined inside method body) and in for loops
+- `var` declarations are allowed only for **local variables** 
+  - i.e. variables defined inside method body and 
+  - in for loops
+- It cannot be used for:
+  - instance variables
+  - static variables
+  - method parameters
+  - return types
 - var is not allowed as an element type of array.
   - `var cA[][]` implies that the type of the elements of the cA array is var, which is not allowed. 
   - `var cA = new char[3][];` would be valid.
@@ -37,26 +44,6 @@
 
 ---
 
-### Widening and Boxing
-
-Java allows:
-
-- primitive widening  
-  - int → long ✔
-- boxing  
-  - int → Integer ✔
-- unboxing  
-  - Integer → int ✔
-
-But Java does NOT allow:
-
-wrapper widening  
-- Integer → Long ✘
-
-There is no inheritance relationship between Integer and Long.
-Both extend Number, but neither is a subtype of the other.
-
----
 
 ### Static fields and methods
 
@@ -89,6 +76,22 @@ Both extend Number, but neither is a subtype of the other.
   - "Give me the pooled version of this string."
   - `String internedExamName = uniqueExamName.intern();`
   - `new String()` always creates a new String object on the heap
+- `StringBuilder sb = new StringBuilder("How are you?");`
+  - `StringBuilder` overrides `toString()` and the actual characters
+- Default `Object.toString()` returns `ClassName@hashcode`
+- The original string does not change unless reassigned:
+  - `String s = "";`
+  - `s.concat("hello");` // difference with StringBuilder
+  - `s = s.concat("hello");` // Only here changes
+
+---
+
+### StringBuilder
+
+- **Mutable objects**
+  - `StringBuilder sb = new StringBuilder();`
+  - `sb.append("hello");`
+  - The same object changes 
 
 ---
 
@@ -123,6 +126,11 @@ the most specific is: `FileNotFoundException`
 ### Float
 
 - `float f = -123;` Implicit widening conversion will occur in this case.
+- `Float.parseFloat` It throws a `NumberFormatException` when the given string **does not contain a valid floating point number**.
+  - `Float.NEGATIVE_INFINITY` valid
+  - `Float.POSITIVE_INFINITY` valid
+  - `Float.NaN` valid
+
 
 ---
 

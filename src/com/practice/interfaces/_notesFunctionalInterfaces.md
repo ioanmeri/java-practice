@@ -50,6 +50,11 @@ Local variables captured by a lambda must be:
 - `final` or
 - `effectively final` (assigned once and never modified)
 
+```java
+Supplier s1 = b1::getPrice;
+s1.get(); // does not have getAsDouble() -> will not compile
+```
+
 ---
 
 ### `Predicate<T>`

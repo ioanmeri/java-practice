@@ -29,3 +29,17 @@ Arrays.stream(Card.values()).takeWhile(c->c.isRed()).forEach(System.out::print);
 ```
 
 ---
+
+### `reduce()`
+
+Compile error:
+
+```java
+letters.stream().reduce("", (a, b)->a.concat(b)).get();
+```
+
+This will not compile. There are three flavors of reduce method. 
+
+The one used here directly returns the **final result** instead of returning an **Optional** containing the result. 
+
+So the call to **get() will cause compilation failure**.

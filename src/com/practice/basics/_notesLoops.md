@@ -29,3 +29,10 @@ var i = 20;
 for (var i = 0; i < 10; i++) System.out.print(i + " ")
 ```
 ---
+
+### While
+
+- The expression inside a `while` condition **must evaluate to a boolean**.
+- `while(true) {` is actually a **valid infinite loop** (can be intentional)
+
+---

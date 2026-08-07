@@ -40,4 +40,21 @@ Java switch supports only:
 - String
 - enum
 
+**Properties**
+- A `default` clause is **not required**.
+
+
+In **switch expression**
+
+```java
+int result = switch(c) {
+    case 'a' -> 1;
+    case 'b' -> 2;
+    default -> 0;
+};
+```
+the switch must be **exhaustive**
+- You need `default -> something`
+- or cover every possible value.
+
 ---

@@ -59,3 +59,27 @@ System.out.println(zdt.format(
 `2026-07-31 14:35:42 +03:00`
 
 ---
+
+### DateTimeFormatter day-of-week patterns
+
+| Pattern  | Output example |
+| -------- | -------------- |
+| `e`      | 7              |
+| `ee`     | 07             |
+| `eee`    | Sat            |
+| `eeee`   | Saturday       |
+| `eeeee`  | S              |
+| `eeeeee` | Sa             |
+
+
+```java
+DateTimeFormatter df = DateTimeFormatter.ofPattern("eeee");
+
+LocalDate d = LocalDate.of(2000, 1, 1);
+
+System.out.println(df.format(d)); // Saturday
+```
+
+---
+
+The important ones are m, M, d, D, e, y, s, S, h, H, and z.

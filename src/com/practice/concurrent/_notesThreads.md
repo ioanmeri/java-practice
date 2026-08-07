@@ -1,5 +1,14 @@
 ## Thread Notes
 
+### Thread General
+
+- `Thread` implements `Runnable`
+  - A `Thread` object can be assigned to a `Runnable` reference.
+  - This is valid upcasting: `Runnable r = new Thread();`
+  - You cannot instantiate an interface like `Runnable()`
+
+---
+
 ### Thread States
 
 - `NEW`

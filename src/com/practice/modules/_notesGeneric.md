@@ -5,6 +5,11 @@
 - A modular jar placed on the module-path results in a named application module.
   - Any jar (modular or non-modular) placed on the module-path becomes a named application module.
 - If a package is available in a jar on the classpath as well as in another jar on the module-path, the one on the classpath is ignored.
+- A module graph **cannot contain cycles**
+  - m$  ---> _n
+  - _n  ---> m$
+- A module is a set of packages that make sense being grouped together and is designed for reuse.
+- The module system ensures that code that is internal to a platform implementation is not accessible from outside the implementation.
 
 ---
 
@@ -24,3 +29,11 @@ In Java's Module System (JPMS), the word service has a specific meaning:
 - providers supply implementations of it.
 
 ---
+
+### Modules Names
+
+Module names have rules:
+
+- They are similar to Java identifiers separated by dots.
+- They may contain letters, digits, and underscores.
+- They cannot contain `$`

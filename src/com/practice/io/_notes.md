@@ -123,8 +123,27 @@ Remember that **most of the I/O operations** (such as opening a **stream on a fi
   - UTF-8 → 1 byte
   - UTF-16 → 2 bytes
 - `PrintWriter` is never **flushed** or **closed** if it isn't declared as a resource
+- The important PrintWriter facts:
+  - `PrintWriter` methods generally **do not throw** `IOException`.
+  - `write()` returns **void**.
+  - `checkError()` returns **boolean**.
+  - `printf()` returns the same `PrintWriter`.
+  - `println()` returns **void**.
 
 **Example**
+
+```java
+public void outputText(PrintWriter pw, String text){
+        pw.write(text);
+        if(pw.checkError()) System.out.println("exception in writing");
+}
+```
+
+```java
+public void outputText(PrintWriter pw, String text){
+        pw.printf(text).print("success");
+}
+```
 
 
 ```java

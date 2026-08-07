@@ -83,6 +83,7 @@
   - `String s = "";`
   - `s.concat("hello");` // difference with StringBuilder
   - `s = s.concat("hello");` // Only here changes
+- Local String (and other) variables does not have a default value
 
 ---
 

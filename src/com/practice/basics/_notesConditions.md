@@ -43,8 +43,9 @@ Java switch supports only:
 **Properties**
 - A `default` clause is **not required**.
 
+---
 
-In **switch expression**
+### Switch expression
 
 ```java
 int result = switch(c) {
@@ -56,5 +57,10 @@ int result = switch(c) {
 the switch must be **exhaustive**
 - You need `default -> something`
 - or cover every possible value.
+- `case null, default -> "invalid input";` is valid
+- Use `default` when other object types must be handled.
+- You need an unguarded `default` (or an unguarded `case Integer i`) to make the switch exhaustive
+- The default case is an **unconditional match**, so the later cases are considered dominated by it
+  - must be the last one
 
 ---

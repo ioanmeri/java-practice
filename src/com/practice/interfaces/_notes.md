@@ -12,19 +12,23 @@
 
 ### Default Interface Method
 
-**Belongs to the class**
+**!! -- Belongs to the class -- !!**
 
 When you mark a method in an interface as default, you are basically **providing 
 a default implementation** of that method so that any class that implements 
 this interface doesn't necessarily have to provide its own implementation
 - You **cannot combine** `default` **and** `final` in an interface method.
   - A `default` method is an instance method **that can be overridden** by implementing classes.
+- Default method in an interface belongs to the implementing object, not to the interface itself
 
 ---
 
 ### Static Interface Method
 
+**!! -- belongs to the interface -- !!**
+
 - A static method **belongs to the interface** itself.
+- Valid only if not conflicting with inherited instance method
 
 ---
 

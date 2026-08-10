@@ -83,3 +83,25 @@ System.out.println(df.format(d)); // Saturday
 ---
 
 The important ones are m, M, d, D, e, y, s, S, h, H, and z.
+
+---
+
+- `getInstance()` uses the **default locale of the machine**.
+
+---
+
+```
+DateFormat
+    format: Date → String
+    parse:   String → Date
+
+NumberFormat
+    format: Number → String
+    parse:   String → Number
+```
+
+- `NumberFormat.getInstance()` means **Use the machine's default Locale**
+- The following line of code will work on a machine in any locale:
+    - `double x = 12345.123;`
+    - `String str = NumberFormat.getInstance().format(x);`
+---

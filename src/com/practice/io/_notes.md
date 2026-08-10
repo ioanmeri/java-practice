@@ -156,3 +156,42 @@ writes the character whose **Unicode value is 1**
 
 ---
 
+### Character/Writer family:
+
+```
+FileWriter
+   ↓
+BufferedWriter
+   ↓
+write()
+newLine()
+```
+
+---
+
+### Binary/Data family:
+
+```
+FileOutputStream
+   ↓
+DataOutputStream
+   ↓
+writeUTF()
+writeInt()
+writeDouble()
+...
+```
+
+---
+
+### DataOutputStream
+
+```
+writeUTF()  ↔ readUTF()
+writeByte() ↔ readByte()
+writeInt()  ↔ readInt()
+writeLong() ↔ readLong()
+writeDouble() ↔ readDouble()
+```
+
+---

@@ -10,6 +10,7 @@
   - _n  ---> m$
 - A module is a set of packages that make sense being grouped together and is designed for reuse.
 - The module system ensures that code that is internal to a platform implementation is not accessible from outside the implementation.
+- A module can access public classes of only those packages of another module that the other module exports.
 
 ---
 

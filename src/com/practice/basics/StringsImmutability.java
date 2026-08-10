@@ -16,6 +16,9 @@ public class StringsImmutability {
         new StringsImmutability().testRefs(s, sb);
 
         System.out.println("s="+s+" sb="+sb);
+
+        //sb.setLength(10);
+        // When you increase the length, Java adds null characters to fill the extra space.
     }
 }
 

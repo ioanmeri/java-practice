@@ -59,3 +59,7 @@ new FileReader(File file)
 
 - A Reader can't be converted into a Writer or vice-versa. In other words, there is no way you can chain a Reader and a Writer together.
   - Invalid: `var pw = new PrintWriter(new FileReader(f));`
+- `BufferedWriter` **does not have a** `writeUTF()` method.
+  - `writeUTF()` belongs to `DataOutputStream` (and `DataOutput`), not Writer/BufferedWriter
+
+---

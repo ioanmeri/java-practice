@@ -18,7 +18,10 @@
 - If a subclass constructor does not explicitly call `super(...)`, Java automatically inserts it
   - and if a superclass has a constructor, Java does not create **no no-argument constructor**
   - **super** from the **subclass** without arguments **fails**
-
+- A **private** constructor is **not accessible from the subclass**.
+- An overriding method **cannot reduce the visibility** of the inherited method.
+- You cannot assign an `X` object to an `int`
+  - `int k = (X) y.val; // illegal`
 
 ---
 

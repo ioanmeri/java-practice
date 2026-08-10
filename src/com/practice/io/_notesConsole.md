@@ -39,6 +39,13 @@ if (c != null) {
 }
 ```
 
+**Available methods**
+✅ readPassword
+✅ reader
+✅ writer
+✅ readLine
+✅ format
+
 ---
 
 ### 2. Reading input

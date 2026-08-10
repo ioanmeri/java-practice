@@ -48,12 +48,12 @@ So, first check whether the return type of the overriding method is a subtype. F
 
 Next, you need to check the type specification of generic types. This is a bit complicated. To determine this, you must remember the following hierarchy of subtypes. Assuming that S is a sub type of T and <<< means "is a subtype of", here are the two hierarchies:
 
-Hierarchy 1 : A<S> <<< A<? extends S> <<< A<? extends T>
+Hierarchy 1 : `A<S> <<< A<? extends S> <<< A<? extends T>`
 Example: Since Integer is a subtype of Number, List<Integer> is a subtype of List<? extends Integer> and List<? extends Integer> is a subtype of List<? extends Number>.
 Thus, if an overridden method returns List<? extends Integer>, the overriding method can return List<Integer> but not List<Number> or List<? extends Number>.
 
 
-Hierarchy 2 : A<T> <<< A<? super T> <<< A<? super S>
+Hierarchy 2 : `A<T> <<< A<? super T> <<< A<? super S>`
 Example: List<Number> is a subtype of List<? super Number> and List<? super Number> is a subtype of List<? super Integer>
 Thus, if an overridden method returns List<? super Number>, the overriding method can return List<Number> but not List<Integer> or List<? super Integer>.
 
@@ -95,4 +95,45 @@ class AA extends A {
         return 3;
     }
 }
+```
+
+---
+
+### Base Extends
+
+```java
+class Base{
+   public <T extends CharSequence> Collection<String> transform(Collection<T> list)
+   {
+      return new ArrayList<String>();
+   }
+    
+}
+```
+
+**Correct overload**
+
+```java
+public <T extends CharSequence> Collection<T> transform(List<T> list) {
+         return new HashSet<T>(); }; //4
+```
+
+---
+
+### Superclass
+
+```java
+class Base {
+    public ArrayList transform(Set list) {
+        // valid code
+    }
+}
+```
+
+So an overriding method in Derived must return either:
+- exactly `ArrayList`
+- a subtype of `ArrayList`
+
+```java
+public ArrayList transform(Set list)
 ```

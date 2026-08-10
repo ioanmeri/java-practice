@@ -135,3 +135,11 @@ the most specific is: `FileNotFoundException`
 
 ---
 
+### Private final
+
+```
+private   final   Object   obj;
+   ↓        ↓       ↓       ↓
+access   cannot   type    variable
+         reassign
+```

@@ -43,3 +43,36 @@ This will not compile. There are three flavors of reduce method.
 The one used here directly returns the **final result** instead of returning an **Optional** containing the result. 
 
 So the call to **get() will cause compilation failure**.
+
+- **Parallel reduce + wrong identity** = **suspicious**.
+  - `lon.parallelStream().reduce(5, Integer::sum);` // Result won't be the same
+
+---
+
+`forEach`
+
+- `Stream.forEach()` requires a `Consumer<? super T>`
+- Consumer → Void
+
+```
+DoubleFunction df = x -> x + 10; // DoubleFunction
+dList.stream().forEach(df); // A compilation error will occur.
+
+Consumer<Number> c = n -> System.out.println(n); // valid consumer
+```
+
+```java
+filter(x -> x > 10)       // asks → boolean
+map(x -> x * 2)           // changes → new value
+forEach(x -> println(x))  // does → void
+```
+
+```java
+list.stream().forEach(x -> x = x * 2);
+// only changes the local lambda parameter x
+// It does not change the element in the list
+```
+
+---
+
+

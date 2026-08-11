@@ -55,6 +55,13 @@ new FileReader(File file)
 
 ---
 
+### `lines()`
+
+- The `lines()` method has been added to `java.io.BufferedReader` in Java 1.8. It returns `Stream<String>`
+- `Stream<String> ref = new BufferedReader(new FileReader(filePath)).lines();`
+
+
+
 ### Writer
 
 - A Reader can't be converted into a Writer or vice-versa. In other words, there is no way you can chain a Reader and a Writer together.

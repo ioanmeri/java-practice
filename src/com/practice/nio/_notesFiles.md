@@ -30,3 +30,23 @@ allows replacement.
 - can delete directories.
   - Non-empty directory → exception (`DirectoryNotEmptyException`).
   - It will print `true` if p refers to an empty directory.
+
+---
+
+### `Files.lines`
+
+- `Files.lines(Path path)` method expects a **Path object** as an argument (not a String).
+  - `Stream<String> ref = Files.lines(Paths.get(filePath));`
+
+To count the lines you may also use a Collector:
+- `Long count = ref.collect(Collectors.counting());`
+
+if you have a File instead of a Path, you may convert the File object to a Path object using File's toPath() method:
+
+```java
+File file = new File(filePath);
+Stream<String> ref = Files.lines(file.toPath());
+```
+
+---
+

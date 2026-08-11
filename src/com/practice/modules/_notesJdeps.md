@@ -21,9 +21,24 @@ jdeps --module-path out out\moduleA\test\A.class
 
 ---
 
-### jdeps
+### `jdeps -summary`
 
 - `jdeps -summary` reports **module dependencies**, not packages.
   - The package `java.util` is inside the module: `java.base`
 
 ---
+
+### `jdeps -jdkinternals or --jdk-internal`
+
+- It analyzes all classes of the given jar file for class level **dependence on jdk's internal API**.
+  - If any such dependence is found, it is printed with a suggestion for replacement
+- It performs static analysis
+  - Jdeps does not execute any classes/modules. It only inspects the code. 
+  - Thus, it cannot find out dependencies that are created due classes loaded at run time using reflection API.
+
+**Overview**
+- Finds class-level dependencies **in the JDK internal APIs**.
+- JDK internal APIs are unsupported and private to JDK implementation that are subject to be removed
+
+---
+

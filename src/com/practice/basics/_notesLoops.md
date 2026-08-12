@@ -34,5 +34,12 @@ for (var i = 0; i < 10; i++) System.out.print(i + " ")
 
 - The expression inside a `while` condition **must evaluate to a boolean**.
 - `while(true) {` is actually a **valid infinite loop** (can be intentional)
+- `while (false) { x=3; }` is a compile-time error because the statement `x=3`; is not reachable;
+
+---
+
+### For
+
+- `for( int i = 0; false; i++) x = 3;`  is also a compile time error because `x=3` is unreachable.
 
 ---

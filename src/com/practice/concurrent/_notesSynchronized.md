@@ -3,6 +3,7 @@
 ### Synchronized General Notes
 
 - When a synchronized method ends with a checked exception, the intrinsic lock held by the thread is released automatically
+- A **deadlock** might occur when multiple threads try to acquire locks on multiple objects in different sequence
 
 ---
 

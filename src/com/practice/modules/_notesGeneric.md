@@ -15,23 +15,6 @@
 
 ---
 
-### Provides Service with Provider
-
-```
-module abc.print {
-    requires org.pdf;
-    provides org.pdf.Print with com.abc.print.PrintImpl;
-}
-```
-
-`org.pdf.Print` is the **service**
-
-In Java's Module System (JPMS), the word service has a specific meaning: 
-- it is the **API (interface or abstract class)** that defines a capability, and 
-- providers supply implementations of it.
-
----
-
 ### Modules Names
 
 Module names have rules:
@@ -39,3 +22,23 @@ Module names have rules:
 - They are similar to Java identifiers separated by dots.
 - They may contain letters, digits, and underscores.
 - They cannot contain `$`
+
+---
+
+### Properties
+
+- Every **module** must reside in a **directory** (or a jar) **of its own**.
+  - You cannot have more than one module in a directory.
+  - Although you may package a module into a jar, put multiple such module jars in a directory, and put that directory (which contains multiple module jars) on the module path.
+- A module can specify **packages** as well as **services**
+  - **Packages** are exported and used using the **exports** and **requires** clauses respectively, while **services** are exported and used using the **provides** and **uses** clauses respectively
+- Modular JDK is helpful in improving performance of an application
+  - The JVM uses various optimization techniques to improve application performance.
+  - JSR 376 indicates that these techniques are more effective when it is known in advance that required types are located only in specific modules.
+- Java modules **do allow a service consumer** to find a service implementation
+  - A service **consumer has to loop through each available service implementation** and pick the one it needs.
+- All **subclasses of a sealed class must belong to the same module** (or to the same package if the sealed class is not a part of a named module)
+  - So, even if a sealed class is visible outside a module, it cannot be extended by classes of other modules
+- A **JImage** is a customized JRE that containts just those parts of a standard JRE that are required for a particular application to run.
+
+---

@@ -42,3 +42,15 @@ So, your command to run myapp module would be:
 java --module-path datalayer.jar;myapp.jar -classpath mysql-connector-java-8.0.11.jar
 --module abc.myapp
 ```
+
+---
+
+### Transitive Fields
+
+```java
+module com.amazing.movies{
+   requires transitive com.amazing.customer;
+}
+```
+
+- Any module that requires the `com.amazing.movies` module can use the `com.amazing.customer` module without requiring it.

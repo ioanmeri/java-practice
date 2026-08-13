@@ -26,3 +26,28 @@ book
 - You can compile `book` even if there is no service provider implementation available
 
 ---
+
+### Uses Example
+
+A valid `module-info` for a **service user module** that **uses an Order service defined in OrderServiceAPI module** and **implemented by OrderServiceProvider module**
+
+```java
+module Customer{
+   requires OrderServiceAPI;
+   uses com.orderservice.api.Order;
+}
+```
+
+or
+
+```java
+module Customer{
+   requires OrderServiceAPI;
+   requires OrderServiceProvider;
+   uses com.orderservice.api.Order;
+}
+```
+
+The Customer module does not need to access the `OrderServiceProvider` module directly. It should not even be aware of it. On the other hand, it should require the `OrderServiceAPI` module.
+
+---

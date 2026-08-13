@@ -20,3 +20,17 @@ When the index is out of range, `Path.getName(int)` throws:
 - IllegalArgumentException
 
 ---
+
+### `Path resolve`
+
+- When the argument to resolve starts with the root (such as c: or, on *nix, a /), the result is same as the argument.
+
+**Example**
+
+```java
+Path p1 = Paths.get("c:\\temp\\test.txt");
+Path p2 = Paths.get("c:\\temp\\report.pdf");
+System.out.println(p1.resolve(p2));
+// Prints c:\temp\report.pdf
+```
+---

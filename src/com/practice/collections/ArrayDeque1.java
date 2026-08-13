@@ -42,6 +42,8 @@ public class ArrayDeque1 {
 
 // peek
 // - only returns the first element—it does not remove it.
+// - expects a Consumer object as an argument
+// -- Calling peek() without any argument will, therefore, fail to compile.
 
 // offer
 // - It attempts to insert the element.

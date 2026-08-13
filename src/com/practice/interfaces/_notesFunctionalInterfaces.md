@@ -20,6 +20,16 @@ These six are the core functional interfaces used throughout Java’s functional
 
 `Function<T, R>` → T = input type, R = return type.
 
+Function takes one argument and returns a value. So `Function<Type>` will not compile. 
+It should actually be `Function<T, R>`. For example, `Function<Locale, String>`.
+
+**Example**
+
+```java
+Function<Locale, String> f1 = name::toUpperCase;
+val = f1.apply(Locale.UK);
+```
+
 ---
 
 ### `UnaryOperator<T>`
@@ -45,6 +55,8 @@ takes two inputs of same type, returns same type
 ### `Supplier<T>`
 
 takes no input, returns a value
+- The functional method of the interface `Supplier <T>` is `T get()`.
+
 
 Local variables captured by a lambda must be:
 - `final` or

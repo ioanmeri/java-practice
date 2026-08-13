@@ -38,13 +38,17 @@
 | Created with `new Thread()` | `Thread.ofVirtual()` or `Thread.startVirtualThread()` |
 
 **Properties**
+
 - The `Executors.newWorkStealingPool()` method is used to improve virtual thread performance by reusing threads in a thread pool.
   - It creates a pool of optimum number of platform threads (depending on the underlying hardware), which are then used to execute virtual threads.
-- Virtual threads are always daemon threads
-- Virtual threads have a fixed thread priority that cannot be changed.
-  - they do not honor thread priority at all
+- Virtual threads are always **daemon threads**
+- Virtual threads **have a fixed thread priority** that cannot be changed.
+  - they **do not honor thread priority** at all
 -  Virtual thread run utilizes a platform thread to execute code and so
   - it cannot be faster than a platform thread.
+- A Virtual thread **executes code on top of a platform thread**
+- Creating millions of virtual threads is possible and even normal for a Java program.
+  - virtual threads eliminate the need to create thread pools when a large number of tasks are required to be executed in parallel
 
 **Ways to Create**
 
@@ -59,4 +63,7 @@ or
 ```
 Thread t = Thread.ofVirtual().unstarted(r);
 ```
+
 ---
+
+

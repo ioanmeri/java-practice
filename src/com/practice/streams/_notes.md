@@ -6,10 +6,15 @@
 
 **Short-Cirtuiting Terminal Operations**
 - allMatch 
+  - returns `boolean`
 - noneMatch 
+  - returns `boolean`
 - anyMatch 
+  - returns `boolean`
 - findFirst 
+  - returns `Optional<T>`: Returns the **first element**
 - findAny
+  - returns `Optional<T>` : Returns **any element**
 
 ---
 
@@ -74,5 +79,30 @@ list.stream().forEach(x -> x = x * 2);
 ```
 
 ---
+
+### `average`
+
+```java
+OptionalDouble x = is1.filter(i->i%2 == 0).average();
+```
+
+Remember that `average()` methods of all numeric streams (i.e. **IntStream, DoubleStream, and LongStream**) returns an `OptionalDouble`
+- If the stream has no elements (as is the case in this question), the returned OptionalDouble will be empty (not 0 or null).
+
+---
+
+### `sum`
+
+```java
+int y = is2.filter( i->i%2 != 0 ).sum();
+```
+
+But the `sum()` methods of the **numeric streams return a primitive value**
+of the same type **i.e. IntStream returns an int**, DoubleStream returns a double, and LongStream returns a long. If the stream is empty, the sum() method returns 0.
+
+---
+
+
+
 
 

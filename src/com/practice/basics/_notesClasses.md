@@ -59,20 +59,6 @@ Encapsulation generally means:
 
 ---
 
-### Sealed Classes
-
-- A sealed class has a rule:
-  - If the sealed class is in a **named module**, all permitted **subclasses** must be **in the same module**.
-  - They **do not need to be in the same package**.
-- Only **Classes** and **Interfaces** can be sealed. Cannot be sealed
-  - Enums (is implicitly final)
-  - Records (is implicitly final)
-- Sealed does not require abstract, and it is not limited to top-level types
-- A sealed class must pre-define a list of subclasses, which means, a sealed class always has one or more subclasses. 
-  - Thus, a sealed class cannot be final
-
----
-
 ### Virtual Calls
 
 A virtual call means that the call is bound to a method at run time and not at compile time.
@@ -80,4 +66,83 @@ A virtual call means that the call is bound to a method at run time and not at c
 In Java, all non-private and non-final instance method calls are virtual. This is important because, at run time, a reference variable may point to an instance of a subclass of the class of the reference.  The compiler doesn't have the knowledge of the class of the actual object being referred to by the reference variable. If the subclass overrides the method, the call becomes polymorphic because now there are two versions of the method that can be invoked (the base class version and the subclass version). Therefore, the compiler is unable to bind the call to the method of a specific class. Only the JVM has the necessary information to bind the call.  The JVM knows the class of the actual object and it binds the call to the method of that class. This behavior is called polymorphism.
 - Thus, in Java, all non-private and non-final instance method calls are potentially polymorphic because there could be multiple versions of the method eligible to be invoked.
 
+---
 
+### Reference type and compiler
+
+When a method is defined only in the subclass, 
+calling that method using a reference whose type is the superclass 
+will not compile, even if the object is actually an instance of the subclass.
+
+```java
+class Animal {
+}
+
+class Dog extends Animal {
+    void bark() {
+    }
+}
+
+Animal a = new Dog();
+a.bark();       // ❌ Does not compile
+```
+
+---
+
+### Initialization Order — Exam Theory
+
+When a class is initialized and an object is created, Java follows this order:
+
+1. **Static fields and static initializer blocks** are executed **once**, in the exact order they appear in the class.
+2. **Instance fields and instance initializer blocks** are executed **for each new object**, in the exact order they appear in the class.
+3. **The constructor** is executed last.
+
+### Example
+
+```java
+static String s1 = sM1("a");  // 1️⃣
+static { s1 = sM1("b"); }     // 2️⃣
+static String s2 = sM1("c");  // 3️⃣
+
+String s3 = sM1("2");         // 4️⃣
+{ s1 = sM1("3"); }            // 5️⃣
+String s4 = sM1("4");         // 6️⃣
+
+public InitTest() {
+    s1 = sM1("1");            // 7️⃣
+}
+```
+
+Therefore the output is:
+
+```text
+a
+b
+c
+2
+3
+4
+1
+```
+
+### ⭐ Rule to memorize for the exam
+
+> **Static initialization → Instance initialization → Constructor**
+
+And within each category:
+
+> **Execute in textual order (top to bottom).**
+
+So:
+
+```text
+static fields/blocks
+        ↓
+instance fields/blocks
+        ↓
+constructor
+```
+
+**Important:** Static initialization happens **once per class**, while instance initialization and the constructor happen **every time an object is created**.
+
+---

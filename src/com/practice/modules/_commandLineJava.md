@@ -87,4 +87,23 @@ java --show-module-resolution \
      -m com.app/com.app.Main
 ```
 
+---
+
+### Example 1
+
+You are given two modules named `enthu.training` and  `enthu.course` packaged in `training.jar` and `course.jar`. 
+
+The training module depends on the course module. 
+
+You want to run a class named `com.enthu.training.StartGUI` contained in `enthu.training` module.
+
+```java
+java --module-path training.jar;course.jar --module enthu.training/com.enthu.training.StartGUI
+```
+
+---
+
+
+
+
 

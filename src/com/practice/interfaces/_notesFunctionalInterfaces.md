@@ -14,6 +14,28 @@ These six are the core functional interfaces used throughout Java’s functional
 
 ---
 
+### Functional Interface and Lambdas
+
+To take advantage of lambda expressions, an interface must be a "functional" interface, 
+which basically means that **the interface must have exactly one abstract method**.
+
+The following is still a valid functional interface:
+
+```java
+@FunctionalInterface
+public interface FI{
+   int m1(); //valid abstract method
+   boolean equals(Object o); //valid declaration
+   //but does not count towards the number of abstract methods
+   String toString(); //valid declaration
+   //but does not count towards the number of abstract methods
+}
+```
+
+
+
+---
+
 ### `Function<T, R>`
 
 `Function` always takes two type parameters:

@@ -10,7 +10,7 @@
   - static variables
   - method parameters
   - return types
-- var is not allowed as an element type of array.
+- var **is not allowed** as an element type of **array**.
   - `var cA[][]` implies that the type of the elements of the cA array is var, which is not allowed. 
   - `var cA = new char[3][];` would be valid.
 - 'var' is not allowed in a compound declaration. In other words, you can define only one variable using var.
@@ -143,3 +143,41 @@ private   final   Object   obj;
 access   cannot   type    variable
          reassign
 ```
+---
+
+### Default Values
+
+- byte, short, char, int, long, float, double: to 0 ( or 0.0 )
+- Object types: null
+- boolean: false
+
+---
+
+### Objects
+
+- An array of objects can store Objects of any class.
+- Primitives (i.e. int, byte, char, short, boolean, long, double, and float) are NOT objects.
+- An array (of primitives as well as of objects) is an Object.
+
+**Valid**
+
+```java
+new Object[]{ "aaa", new Object(), new ArrayList(), 10}
+```
+
+10 is a primitive and not an Object but due to auto-boxing it will be converted into an Integer (object)
+
+```java
+new Object[]{ "aaa", new Object(), new ArrayList(), new String[]{""} };
+```
+
+Every array is an Object so `new String[]{""}` is also an Object and can be placed in an array of objects
+
+**Not Valid**
+
+```java
+new Object[1]{ new Object() }; // can't specify array length if you are initializing it at the same place.
+
+new Object[]{ "aaa", new Object(), new ArrayList(), {} }; // {} is not a valid way to create an Object here
+```
+

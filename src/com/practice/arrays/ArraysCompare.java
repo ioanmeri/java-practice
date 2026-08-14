@@ -19,3 +19,26 @@ public class ArraysCompare {
         // 1 2
     }
 }
+
+// Another example
+// char[] a = { 'h', 'e', 'l', 'l'};
+// char[] b = { };
+
+// int x = Arrays.compare(a, b);
+// int y = Arrays.mismatch(a, b);
+// System.out.println(x+" "+y);
+
+// Prints: 4 0
+
+// Since the second array is a proper prefix of the first array, compare() will return a
+// positive number and the number will be the same as the difference in the number of
+// elements in both the arrays i.e 4-0 = 4.
+
+// Proper Prefix
+// An array b is a prefix of array a if b contains the elements at the beginning of a
+// a = { 'h', 'e', 'l', 'l' }
+// b = { 'h', 'e' }
+
+
+// Since the two arrays are differ at index 0, mismatch will return 0.
+

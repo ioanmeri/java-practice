@@ -2,6 +2,11 @@ For the **Java SE 21 Developer Professional (1Z0-830)** exam, `java.io.Console` 
 
 ## **Java I/O (Input/Output) API**
 
+## Notes Console
+
+- **None** of the calls to Console **throw any checked exception**
+
+---
 
 ## What you need to know about `Console` for 1Z0-830
 

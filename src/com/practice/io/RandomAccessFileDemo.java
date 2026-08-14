@@ -43,3 +43,11 @@ public class RandomAccessFileDemo {
 //| `"rw"`  | Read and write                                         |
 //| `"rws"` | Read/write + synchronously update content and metadata |
 //| `"rwd"` | Read/write + synchronously update content only         |
+
+
+// Another Demo: write chars at the end of the file
+
+// RandomAccessFile raf = new RandomAccessFile("file.txt", "rw");
+// raf.seek( raf.length() );
+// raf.writeChars("FINAL TEXT");
+

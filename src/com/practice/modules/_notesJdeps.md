@@ -42,3 +42,36 @@ jdeps --module-path out out\moduleA\test\A.class
 
 ---
 
+### Jdeps Example
+
+```java
+class TestClass{
+   public static void main(String args[]){
+      java.sql.Timestamp ts = new java.sql.Timestamp(1);
+      java.awt.Label lb = new java.awt.Label("Time is "+ts);
+      System.out.println(lb);
+   }
+}
+```
+and the following commands:
+
+```
+javac TestClass.java
+jdeps -summary TestClass.class
+```
+
+Result:
+
+```
+TestClass.class -> java.base
+TestClass.class -> java.desktop
+TestClass.class -> java.sql
+```
+
+- The `java.util` **package** belongs to the `java.base` module
+- The `java.sql` **package** belongs to the `java.sql` module
+- `java.awt` as well as `javax.swing` packages belong to the `java.desktop` module
+
+---
+
+

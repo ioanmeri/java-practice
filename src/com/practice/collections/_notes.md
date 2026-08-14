@@ -53,3 +53,27 @@
 When you create the resulting Map, use a LinkedHashMap instead of the default HashMap.
 
 ---
+
+### Collections sort
+
+```java
+Object[] sa = { 100, 100.0, "100" }
+Collections.sort(Arrays.asList(sa), null);
+// Throws an exception at run time
+```
+
+If the second parameter to `Collections.sort(List<T> list,  Comparator<? super T> c)` is `null`, the elements' natural ordering is used for comparing them. (There is no NullPointerException.)  
+
+Natural ordering means that the sort method will make use of `java.lang.Comparable` interface and will call `compareTo` method on the objects stored in the collection.
+
+In this case, the implementation of `compareTo` methods of String, Integer, and Double classes **are not compatible**
+
+**Correct Way**
+
+```java
+Object[] sa = { 100, 100.0, "100", "-100", "-200", "a", "A", "ab" };
+Comparator<Object> c = (a, b)->a.toString().compareTo(b.toString());
+Collections.sort(Arrays.asList(sa), c);
+```
+
+---

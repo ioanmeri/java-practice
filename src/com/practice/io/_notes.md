@@ -195,3 +195,20 @@ writeDouble() ↔ readDouble()
 ```
 
 ---
+
+### RandomAccessFile
+
+Remember that RandomAccessFile implements DataInput as well as DataOutput interfaces. Therefore, in this case, 
+you can use raf as an instance of DataOutput and call its writeUTF(String) method.
+
+```java
+var raf = new RandomAccessFile("c:\\temp\\test.txt", "rwd");
+raf.writeUTF("hello world");
+raf.close();
+
+var dis = new DataInputStream(new FileInputStream("c:\\temp\\test.txt"));
+String value = dis.readUTF();
+System.out.print(value);
+dis.close();
+```
+

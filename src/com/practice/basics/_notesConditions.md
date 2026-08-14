@@ -43,6 +43,8 @@ Java switch supports only:
 **Properties**
 - A `default` clause is **not required**.
 
+A type of switch's selector expression **cannot be a boolean**
+
 ---
 
 ### Switch expression

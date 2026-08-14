@@ -63,3 +63,30 @@ public void run()
 - **At a fixed rate**
 - **With a fixed delay between executions**
 
+---
+
+### Callable
+
+**Definition**
+
+```java
+public interface Callable<V>{   
+  V call() throws Exception; 
+}
+```
+- A Callable should return actual data object instead of wrapping the data into a Future.
+- It is the job of `ExecutorService.submit()` method to return a Future that wraps the data returned by `Callable.call()`.
+
+
+```java
+public class MyTask implements Callable<String>{
+    public String call() throws Exception {
+         //do something
+        // Notice that Callable<String> matches the return type
+       return "Data from callable";
+   }
+}
+```
+
+---
+

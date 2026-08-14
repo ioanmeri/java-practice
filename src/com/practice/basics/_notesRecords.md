@@ -37,3 +37,38 @@ record Student(String name, int id)
 ```
 
 ---
+
+### Records Constructors
+
+
+1. Calling Canonical constructor from a non canonical
+
+If you write a non-canonical constructor in a record explicitly then, **on the first line** of such a constructor, 
+you must **provide a call to either the canonical constructor or another 
+constructor**. For example:
+
+```java
+public record Student(int id, String name){
+    public Student(){ //a non-canonical constructor
+        this(10); //this line or a call to the canonical constructor is required 
+    }
+    public Student(int id){ //another non-canonical constructor
+        this(id, ""); //this line is required 
+    }
+    public Student(int id, String name){ //regular form canonical constructor
+        this.id = id; this.name=name;
+    }
+}
+```
+
+2. Provide the canonical constructor in a "compact form"
+
+```java
+public record Student(int id, String name){
+    public Student{ //no parameter list is specified here
+	   if(id <0) throw new IllegalArgumentException();
+	}
+}
+```
+
+---

@@ -12,6 +12,17 @@
 - A **module** is a **set of packages** that make sense being grouped together and is designed for reuse.
 - The module system ensures that **code that is internal** to a platform implementation is **not accessible from outside** the implementation.
 - A **module can access public classes** of only those packages **of another module** **that** the other module **exports**.
+- Modules **allows a sealed class** and its direct subtypes **to be members of different packages**.
+  - Normally, the direct subclasses of a seal class must reside in the same package as the package of the sealed class
+  - However, if a **sealed class** belongs to a **named module**, it is allowed to **list classes from different packages** of the **same module in its permits clause**.
+
+---
+
+### Modules and Command Line Options
+
+- Although not recommended, **it is possible to customize what packages a module exports from the command line**
+- If a **module wants to read another module but only temporarily**, it can **request such access using command line options**.
+  - Even packages that have not been exported in `module-info` can be made accessible using `--add-exports` command line option
 
 ---
 

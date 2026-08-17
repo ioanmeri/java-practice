@@ -1,3 +1,4 @@
+```
 Collections Framework
 │
 ├── Collection (interface)
@@ -46,3 +47,5 @@ Streams & Lambdas
 ├── Method References
 ├── sorted()
 └── Comparator.comparing()
+
+```

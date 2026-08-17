@@ -93,6 +93,18 @@ s1.get(); // does not have getAsDouble() -> will not compile
 
 ### `Predicate<T>`
 
-takes one input, returns boolean
+takes **one input**, returns boolean
+
+- `x -> x == null`
+- `x->true`
+
+
+You cannot reuse the variable names that have already been used in the same method / block.
+
+It would be like defining the same variable twice in the same scope.
+
+
+(parameter list) OR single_variable_without_type ->
+{ regular lines of code } OR just_an_expression_without_semicolon
 
 ---

@@ -20,6 +20,14 @@ Files.move(
 
 allows replacement.
 
+**COPY_ATTRIBUTES**
+
+```java
+Files.copy(p1, p2, StandardCopyOption.COPY_ATTRIBUTES);
+```
+
+- Copying of the attributes is platform and system dependent.
+
 ---
 
 ### `Files.deleteIfExists()`

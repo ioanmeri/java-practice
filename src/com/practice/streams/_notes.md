@@ -12,7 +12,9 @@
 - anyMatch 
   - returns `boolean`
 - findFirst 
+  - Stream's `findFirst()` method does not take any parameter
   - returns `Optional<T>`: Returns the **first element**
+  - `Optional<Book> bk = bkStrm.filter(b->b.getAuthor().equals("Stephen King")).findFirst(); // Valid`
 - findAny
   - returns `Optional<T>` : Returns **any element**
 
@@ -58,6 +60,19 @@ So the call to **get() will cause compilation failure**.
 
 - `Stream.forEach()` requires a `Consumer<? super T>`
 - Consumer → Void
+- `forEachOrdered` will always process the elements in the order the elements were present in the original stream
+
+
+---
+
+`Peak`
+
+- If Peek is being invoked **on a parallel stream**, it will be invoked on the elements of the stream **in any order**.
+
+---
+
+``
+
 
 ```
 DoubleFunction df = x -> x + 10; // DoubleFunction

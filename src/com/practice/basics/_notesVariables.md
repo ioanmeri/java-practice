@@ -16,6 +16,8 @@
 - 'var' is not allowed in a compound declaration. In other words, you can define only one variable using var.
 - Variables declared with var must be assigned a value in the declaration itself because without the value, the compiler will not be able to infer the type of the variable.
 - You cannot redeclare a parameter name inside the method using var
+- `_` has been made a keyword, it cannot be used as a variable name anymore
+  - `var _  = 10 // Invalid`
 
 --- 
 ### Integers
@@ -27,6 +29,7 @@
 - Java caches Integer values in the range: `-128 to 127`
   - If the value is outside this range, a new Integer object is created
   - If the final value after `i--` and `i++` is within this range, i will be re-boxed to the cached object
+- `int i = Integer.parseInt(s);` throws a `NumberFormatException` if s is 12.3 (not an integer).
 
 
 ---
@@ -44,6 +47,15 @@
 
 ---
 
+### Double
+
+- The call to `printSum(1, 2.0)` will be bound to `printSum(double... )` 
+  - and not to `printSum(int, float)` or `printSum(float, float)`
+  - Double is a wider data type than int or float
+  - So, a double value cannot be passed to an int or a float parameter.
+  - An int value can be passed to a long, float, or double parameter because int is a narrower data type than the other three
+
+---
 
 ### Static fields and methods
 
@@ -180,4 +192,13 @@ new Object[1]{ new Object() }; // can't specify array length if you are initiali
 
 new Object[]{ "aaa", new Object(), new ArrayList(), {} }; // {} is not a valid way to create an Object here
 ```
+
+---
+
+### Local Variables
+
+- Local variables can have same name as member variables
+  - The local variables will simply shadow the member variables with the same names.
+
+---
 

@@ -31,3 +31,29 @@ lock.unlock();
 ```
 
 ---
+
+### ReentrantReadWriteLock
+
+From a `ReadWriteLock`, you can get one read lock (by calling `lock.readLock()` ) and one write lock (by calling `lock.writeLock()` ). 
+
+Even if you call these methods multiple times, the same lock is returned.
+
+```java
+private ReadWriteLock lock = new ReentrantReadWriteLock();
+
+lock.readLock().lock();
+
+lock.readLock().unlock();
+```
+
+- if one thread is reading, other threads can read, but no thread can write. 
+- If one thread is writing, no other thread can read or write.
+
+
+Methods that do not modify the collection (i.e. the threads that just "read" a collection) 
+should acquire a read lock 
+and threads that modify a collection should acquire a write lock.
+
+
+
+---

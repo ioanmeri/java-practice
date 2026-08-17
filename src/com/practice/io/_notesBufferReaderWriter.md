@@ -3,6 +3,10 @@
 ###  BufferedReader
 
 - A `BufferedReader` can wrap any Reader. Both `FileReader` and `BufferedReader` are Readers so are valid.
+- `java.nio.file.NoSuchFileException: test.txt`
+  - This exception will be thrown when the program tries to create a BufferedReader to read the file specified by the Path object.
+  - `var myfile = Paths.get("test.txt");`
+  - `try(var bfr = Files.newBufferedReader(myfile, Charset.forName("US-ASCII") )){`
 
 
 ---
@@ -68,5 +72,11 @@ new FileReader(File file)
   - Invalid: `var pw = new PrintWriter(new FileReader(f));`
 - `BufferedWriter` **does not have a** `writeUTF()` method.
   - `writeUTF()` belongs to `DataOutputStream` (and `DataOutput`), not Writer/BufferedWriter
+  - BufferedWriter's `append` method = works **same as the write(String)** method.
+    - It doesn't really append the data to the end of the existing content.
+    - **It overwrites the existing content**.
+  - A call to `flush` is useful when you want to write the contents to the file **but don't want to close the writer yet**.
+  - The `close` method **flushes the stream** and makes sure that **all data is actually written to the file**.
+    - If the given code includes a call to `close()`, **there is no need for a call to flush**.
 
 ---

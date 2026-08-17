@@ -14,6 +14,8 @@
   - Cannot replace elements
   - will cause an `UnsupportedOperationException` to be thrown at runtime
 - Does **not** share the array afterward
+- A List is indeed a Collection but List is an interface. 
+  - It cannot be instantiated `new List`
 
 ---
 
@@ -77,3 +79,19 @@ Collections.sort(Arrays.asList(sa), c);
 ```
 
 ---
+
+### Comparable
+
+- A class implements Comparable interface when it wants to let an object of that class to be compared with another object of that class. 
+- A Comparable constitutes the "natural" ordering of objects of that class.
+- When a class implements Comparable, you can sort a collection (or array) of objects of that class using `Collections.sort` (or `Arrays.sort`) **without requiring a separate Comparator object**.
+
+```java
+var cin = new Comparable<Integer>(){
+  public int compareTo(Integer i1){
+      return "100".compareTo(""+i1);
+  }
+```
+
+---
+

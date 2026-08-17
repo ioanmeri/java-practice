@@ -13,6 +13,8 @@ record Student(int id, String name) {
         }
 
         if (name == null || name.isBlank()) {
+            // isBlank() returns true if the string is empty or contains only white space codepoints, otherwise false
+            // isEmpty() returns true if, and only if, length() is 0
             throw new IllegalArgumentException("Name cannot be empty");
         }
 

@@ -112,6 +112,7 @@ Remember that **most of the I/O operations** (such as opening a **stream on a fi
 - throw `IOException`
 - `FileNotFoundException` is a subclass of `IOException` and `IndexOutOfBoundsException` is subclass of `RuntimeException`.
 - The code can be fixed by replacing FileNotFoundException | IndexOutOfBoundsException with IOException or by adding another catch block that catches IOException.
+- `java.io.FileNotFoundException` may be thrown by `FileInputStream`, `FileOutputStream`, and `RandomAccessFile` constructors if the file by the given name does not exist.
 
 ---
 

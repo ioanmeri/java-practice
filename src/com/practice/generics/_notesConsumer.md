@@ -9,9 +9,25 @@ public interface Consumer<T> {
     void accept(T t);
 }
 ```
-A Consumer takes in a value of type T and does something with it.
+A Consumer takes in a value of type `T` and does something with it.
 
 It does not return anything.
+
+### Consumer Examples
+
+```java
+Consumer<String> x = (String msg)->{ System.out.println(msg); };
+
+Consumer x = (msg)->{ System.out.println(msg); };// msg's type will be inferred as Object
+
+Consumer x = (m)->{ };
+
+Consumer x = System.out::println
+
+Consumer x = (String msg)->{ System.out.println(msg); };
+// Not valid: Since Consumer is not typed to String, the type of msg must be Object.
+```
+
 
 ---
 

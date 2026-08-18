@@ -202,3 +202,7 @@ new Object[]{ "aaa", new Object(), new ArrayList(), {} }; // {} is not a valid w
 
 ---
 
+### Instance Variables
+
+- Instance variables and can only be accessed through a reference.
+  - It cannot be accessed directly from a static method because the implicit variable "this" is not available in a static method.

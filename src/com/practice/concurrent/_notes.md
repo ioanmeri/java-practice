@@ -2,7 +2,19 @@
 
 ### Runnable and Callable
 
-All you need to do to execute Runnables and Callables is to submit them to the cached thread pool. 
+- All you need to do to execute Runnables and Callables is to submit them to the cached thread pool. 
+
+
+```java
+Runnable r = ()-> System.out.println("In Runnable");
+Callable<Integer> c = ()-> { System.out.println("In Callable"); return 0; };
+
+var es = Executors.newCachedThreadPool();
+
+
+es.submit(c);
+es.submit(r);
+```
 
 A cached thread pool creates new threads as needed, but will reuse previously constructed threads when they are available. 
 

@@ -60,6 +60,22 @@ val = f1.apply(Locale.UK);
 -  takes only one type parameter.
 - input and output types are the same.
 
+
+`IntFunction` is a functional interface that takes an int and returns whatever it is typed to
+
+**Example**
+
+```java
+IntFunction<IntUnaryOperator> fo = (int a)-> {
+    return (int b) -> a - b;  // IntUnaryOperator, b = 5
+};
+
+// or
+IntFunction<IntUnaryOperator> fo = a->b->a-b;
+```
+
+
+
 ---
 
 ### `BinaryOperator<T>`
@@ -99,12 +115,18 @@ takes **one input**, returns boolean
 - `x->true`
 
 
+**Variables names in the same method**
+
 You cannot reuse the variable names that have already been used in the same method / block.
 
 It would be like defining the same variable twice in the same scope.
 
-
 (parameter list) OR single_variable_without_type ->
 { regular lines of code } OR just_an_expression_without_semicolon
+
+**Predicate Types**
+
+When predicate is typed like this `Predicate<List>`, it expects exactly a `List` as input,
+`ArrayList` is not valid.
 
 ---

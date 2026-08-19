@@ -105,3 +105,18 @@ NumberFormat
     - `double x = 12345.123;`
     - `String str = NumberFormat.getInstance().format(x);`
 ---
+
+### DateTimeFormatter
+
+`DateTimeFormatter` cannot be instantiated because it **has no public constructor**.
+
+It provides various static methods such as 
+- ofPattern(...) 
+- ofLocalizedDate/DateTime(...) 
+
+methods and also various predefined static constants such as `ISO_LOCAL_DATE` and `ISO_LOCAL_DATE_TIME`, to get its instances.
+
+
+The pattern uses letters such as `uuuu-MMM-dd` and localized style use `LONG`, `FULL`, `SHORT`, and `MEDIUM` constants defined in as `java.time.format.FormatStyle` enum
+
+---

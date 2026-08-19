@@ -26,6 +26,7 @@ this interface doesn't necessarily have to provide its own implementation
 - An interface **can** redeclare a **default method** and also make it **abstract**
   - When extends another interface which has a default method
   - OK: default -> `String getId()`
+- A **default method cannot be overridden by a static** method
 
 ---
 
@@ -37,6 +38,7 @@ this interface doesn't necessarily have to provide its own implementation
 - Valid only if not conflicting with inherited instance method
 - But, you **cannot override a non-static** method **with a static method** and vice versa.
   - e.g. Not Allowed: default -> static
+- You can **redeclare a static method** of a super interface **as a default method** in the sub interface
 
 ---
 

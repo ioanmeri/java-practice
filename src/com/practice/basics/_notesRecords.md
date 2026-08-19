@@ -1,5 +1,7 @@
 ## Notes Records
 
+**Properties**
+
 - Records **cannot** declare additional instance **fields**
     - The only instance fields allowed are the record components
 - Records **can** declare **additional methods**
@@ -11,6 +13,15 @@
   - It can define **static fields** as well as **instance and static methods**
 - A record is allowed to have at most one varargs field and if present, it should be at the end of the header.
 
+
+**Additional**
+
+- A sealed class cannot permit a record because record cannot extend any class
+- A record cannot extend any class explicitly. It cannot even have an extends clause.
+- A record cannot explicitly define instance fields.
+  - `private String name = "unknown"; // Not Valid`
+- A record may have final and non-final static fields.
+  - `public static final long serialVersionUID  = 1L; // Valid`
 
 ---
 

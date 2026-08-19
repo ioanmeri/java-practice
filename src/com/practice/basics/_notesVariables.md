@@ -13,8 +13,10 @@
 - var **is not allowed** as an element type of **array**.
   - `var cA[][]` implies that the type of the elements of the cA array is var, which is not allowed. 
   - `var cA = new char[3][];` would be valid.
-- 'var' is not allowed in a compound declaration. In other words, you can define only one variable using var.
-- Variables declared with var must be assigned a value in the declaration itself because without the value, the compiler will not be able to infer the type of the variable.
+- var is not allowed in a **compound declaration**. 
+  - In other words, you can define **only one variable using var**. 
+  - `var coupon, offset, base; // Not Valid`
+- Variables declared with var **must be assigned a value in the declaration itself** because without the value, the compiler will not be able to infer the type of the variable.
 - You cannot redeclare a parameter name inside the method using var
 - `_` has been made a keyword, it cannot be used as a variable name anymore
   - `var _  = 10 // Invalid`
@@ -31,6 +33,18 @@
   - If the final value after `i--` and `i++` is within this range, i will be re-boxed to the cached object
 - `int i = Integer.parseInt(s);` throws a `NumberFormatException` if s is 12.3 (not an integer).
 
+---
+
+**Example Integer Range -128 to 127**
+
+```java
+Integer j = i;
+i--;
+i++;
+System.out.println((i==j));
+```
+
+works for `0`, `-1`, `127` but **NOT** for `-256`, `256`
 
 ---
 

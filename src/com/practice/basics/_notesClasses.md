@@ -3,9 +3,9 @@
 ### Constructors
 
 - Constructors have **no return type** (not even `void`)
-- May have any access modifier (`public`, `protected`, package-private, `private`)
+- May have **any access modifier** (`public`, `protected`, package-private, `private`)
   - No modifier means default access (only classes in package can use it) 
-- must have a body
+- must have a body - even empty
 - The class has an **implicit default constructor (auto-generated)** **if the class contains no constructor declarations**.
 - Parent constructors always execute before child constructors.
 - Protected constructor means
@@ -23,6 +23,13 @@
 - An overriding method **cannot reduce the visibility** of the inherited method.
 - You cannot assign an `X` object to an `int`
   - `int k = (X) y.val; // illegal`
+
+---
+
+### Main method
+
+- Main is a static method and this is not available in a static method. 
+  - Therefore, `this.result` **is invalid**
 
 ---
 
@@ -57,6 +64,9 @@ Encapsulation generally means:
 ### Overridding
 
 - Dynamic dispatch only applies to **overridden** methods, **not overloaded methods**.
+- You **cannot override/hide a static method** **with a non static method** and vice versa.
+  - `public static void sayHello(){...}`
+  - `public void sayHello(){...} // Compilation Error`
 
 ---
 

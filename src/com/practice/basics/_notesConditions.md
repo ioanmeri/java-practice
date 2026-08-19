@@ -65,4 +65,28 @@ the switch must be **exhaustive**
 - The default case is an **unconditional match**, so the later cases are considered dominated by it
   - must be the last one
 
+**Valid constructs**
+
+```java
+ switch(5) {
+    default :
+ }
+ 
+ switch(5) {
+    default : break;
+}
+
+var x = 0;
+switch(x){
+
+}
+
+public int switchTest(byte x){
+  return switch(x){
+    default -> 0;
+    case '1' -> 1;
+  };
+}
+```
+
 ---

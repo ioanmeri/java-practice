@@ -79,4 +79,11 @@ new FileReader(File file)
   - The `close` method **flushes the stream** and makes sure that **all data is actually written to the file**.
     - If the given code includes a call to `close()`, **there is no need for a call to flush**.
 
+
+**Methods**
+
+- PrintWriter **does not provide** explicit methods for writing primitives (i.e. writeInt, writeBoolean, etc.).
+- It has **overloaded print methods** that take various primitives 
+  - (i.e. print(int), print(boolean), print(long), and print(char) as arguments).
+
 ---

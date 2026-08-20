@@ -103,6 +103,14 @@ java --module-path training.jar;course.jar --module enthu.training/com.enthu.tra
 
 ---
 
+### Example 2
+
+```
+java -p .\dir1 -cp .\dir2 -m a.b/a.b.c.Main
+```
+
+`Main.class` should be present in `dir1\a.b\a\b\c` directory or, if it is inside a jar, then its path should be `\a\b\c`.
+
 
 
 

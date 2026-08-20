@@ -213,6 +213,9 @@ new Object[]{ "aaa", new Object(), new ArrayList(), {} }; // {} is not a valid w
 
 - Local variables can have same name as member variables
   - The local variables will simply shadow the member variables with the same names.
+- Local variables (variables declared inside a method) **are not automatically initialized**. 
+  - You must assign a value before using them, **otherwise the code will not compile**.
+- You cannot specify visibility of local variables.
 
 ---
 

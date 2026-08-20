@@ -117,6 +117,25 @@ of the same type **i.e. IntStream returns an int**, DoubleStream returns a doubl
 
 ---
 
+### Collectors.toMap
+
+- `Collectors.toMap` throws `java.lang.IllegalStateException` if an attempt is made to **store a key that already exists** in the Map.
+- `Collectors.toMap(Function, Function, BinaryOperator)` method
+  - The third parameter is used to merge the duplicate entries to produce one entry
+  - `Collectors.toMap(b->b.getTitle(), b->b.getPrice(), (v1, v2)->v1+v2)`
+    - This Collector will sum the values of the entries that have the same key
+
+```java
+List<Book> books = Arrays.asList(
+        new Book("Gone with the wind", 5.0),
+        new Book("Gone with the wind", 10.0),
+        new Book("Atlas Shrugged", 15.0)
+);
+books.stream().collect(Collectors.toMap((b->b.title()), b->b.price()))
+                        .forEach((a, b)->System.out.println(a+" "+b));
+```
+
+---
 
 
 

@@ -3,6 +3,9 @@
 - A `catch` block catches the specified type and **all of its subclasses**.
   - `E2 extends E1` with `catch(E1 e){` with catch `throw new E2();`
 - Exceptions specified in a **multi-catch block** must **not** have **a parent-child (or ancestor/successor) relationship**.
+- Neither Errors nor RuntimeExceptions are used for recoverable situations
+  - RuntimeExceptions should be identified during testing and eliminated by fixing the code, while 
+  - Errors should be eliminated by fixing the environment
 
 
 ---

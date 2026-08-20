@@ -213,3 +213,5 @@ System.out.print(value);
 dis.close();
 ```
 
+- If the file `test.txt` does not exist, an attempt will be made to create it.
+

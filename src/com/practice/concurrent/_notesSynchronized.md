@@ -2,10 +2,13 @@
 
 ### Synchronized General Notes
 
-- When a synchronized method ends with a checked exception, the intrinsic lock held by the thread is released automatically
-- A **deadlock** might occur when multiple threads try to acquire locks on multiple objects in different sequence
-- A deadlock can be avoided if the second thread acquire the locks in the same order as the first thread
+- When a synchronized method **ends with a checked exception**, the intrinsic **lock held by the thread is released** automatically
+  - The intrinsic lock **is released when the method ends**. Irrespective of how it ends.
+- A **deadlock** might occur when multiple threads try to **acquire locks on multiple objects in different sequence**
+- A deadlock **can be avoided** if the second thread acquire the **locks in the same order** as the first thread
     - This is a standard technique to prevent a deadlock when multiple thread need to acquire multiple locks.
+- An **intrinsic lock is never shared**. Once a thread acquires an intrinsic lock, **it owns the lock exclusively** until it releases the lock.
+
 ---
 
 ### Synchronized Class object

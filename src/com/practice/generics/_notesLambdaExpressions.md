@@ -21,6 +21,28 @@ public class TestClass{
 
 Hence, you cannot use this variable inside a lambda expression.
 
+**Another Example**
+
+A local variable needs to be final or effectively final to be accessed from an inner class or lambda expression.
+
+```java
+class TestClass{
+   public double process(double payment, int rate)
+   {
+      double defaultrate = 0.10;        //1
+      if(rate>10) defaultrate = rate;  //2 Must be removed so defaultrate is effectively final
+      class Implement{
+         public int apply(double data){
+             Function<Integer, Integer> f = x->x+(int)(x*defaultrate);  //3 or change defaultrate -> rate
+             return f.apply((int)data); //4
+         }
+      }
+      Implement i = new Implement();
+      return i.apply(payment);
+   }
+}
+```
+
 ---
 
 ### Local variable names

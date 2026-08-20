@@ -39,6 +39,23 @@
   - To access the outer class's field, you must qualify it `OuterClass.this.a`
 - `this` refers to the current `Inner` object.
   - `this.a` is equivalent to: `Inner.this.a`
+- A nested class may be sealed.
+- Methods in all nested classes can be declared static.
+- A static nested class can contain a non - static inner class.
+
+Nested classes are divided into two categories: static and non-static. Nested classes that are declared static are simply called static nested classes.
+
+Non-static nested classes are called inner classes.
+
+---
+
+### Local Inner Class
+
+For a local inner class defined inside a static method:
+
+- It can access all static variables of the enclosing class.
+- It can access local (automatic) variables only if they are final or effectively final.
+- It cannot access instance variables directly, because there is no enclosing instance in a static context.
 
 ---
 

@@ -6,8 +6,10 @@
 
 ### `list.of`
 
-- `List.of()` does not allow null elements
-- Creates an immutable list, also `List.copyOf`
+- `List.of()` does **not allow null** elements
+  - `var numA = new Integer[]{1, null, 3};` //1 
+  - `var list1 = List.of(numA);` //2 An `NullPointerException` will be thrown at run time.
+- Creates an **immutable list**, also `List.copyOf`
   - Cannot add
   - Cannot remove
   - Cannot sort

@@ -44,3 +44,11 @@ System.out.println(functionValue); // 7
 ```
 
 ---
+
+### Precedence
+
+- `boolean` operators have more precedence than `=`
+  - (In fact, = has least precedence of all operators.)
+  - `(b2 != b1 = !b2) // Compile Time error:  false = !b2 (false is a value not variable) `
+
+

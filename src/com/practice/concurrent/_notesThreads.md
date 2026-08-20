@@ -60,10 +60,48 @@ Thread t2 = Thread.startVirtualThread(runnableInstance);
 ```
 or
 
+(Assume that r refers to a Runnable instance)
+
 ```
 Thread t = Thread.ofVirtual().unstarted(r);
 ```
 
 ---
 
+### BLOCKED
 
+```java
+public class TestClass {
+    static class Calculation implements Runnable {
+       int result;
+       public void run() {
+          synchronized(this){
+              try{
+                 Thread.sleep(5000); //LINE 10: TIMED_WAITING
+                result = 101;
+              }catch(Exception e){ e.printStackTrace(); }
+           }
+       }
+    }
+    
+    public static void main(String args[]) throws Exception {
+       Calculation c = new Calculation();
+       Thread.Builder tb = Thread.ofPlatform();
+       Thread t = tb.unstarted(c);
+       t.start();
+       Thread.sleep(100);
+       synchronized(c){  //LINE 21: BLOCKED
+           System.out.println("Result is "+c.result);
+       }
+    }
+}
+```
+
+
+A thread that is waiting for a monitor to become free is in **BLOCKED** state. 
+
+When the main thread tries to enter the `synchronized(c)` block, it too tries to acquire the same lock that the calculation thread has already acquired. 
+
+Therefore, **the main thread will be put in the BLOCKED state**. 
+
+It will remain in that state until the calculation thread releases the lock (by exiting the synchronized block).

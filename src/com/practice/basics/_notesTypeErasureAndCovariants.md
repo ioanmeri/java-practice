@@ -39,6 +39,8 @@ Hence, if you put them in the same class, the resulting class file will have two
 
 The exception to this rule is that the overriding method is allowed to erase the generic type specification. For example, if the overridden method has Set<Integer>, then the overriding method can use Set or Set<Integer>. But if overridden method has Set, then the overriding method must also have Set for a valid override.
 
+- A subclass method is allowed to erase the generic type specification of a parameter.
+
 3.
 
 ### Rule of Covariant Returns

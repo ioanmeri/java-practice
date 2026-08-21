@@ -5,6 +5,7 @@
 - Constructors have **no return type** (not even `void`)
 - May have **any access modifier** (`public`, `protected`, package-private, `private`)
   - No modifier means default access (only classes in package can use it) 
+  - private->'no modifier'->protected->public
 - must have a body - even empty
 - The class has an **implicit default constructor (auto-generated)** **if the class contains no constructor declarations**.
 - Parent constructors always execute before child constructors.

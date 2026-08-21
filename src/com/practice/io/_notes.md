@@ -130,6 +130,11 @@ Remember that **most of the I/O operations** (such as opening a **stream on a fi
   - `checkError()` returns **boolean**.
   - `printf()` returns the same `PrintWriter`.
   - `println()` returns **void**.
+- None of the PrintWriter's methods throw any I/O exceptions because they supress the errors in writing
+  - **Set an internal flag for error** status instead
+  - The `checkError` **method returns true if there has been a problem** in writing
+- All the write and print methods of PrintWriter return void.
+
 
 **Example**
 

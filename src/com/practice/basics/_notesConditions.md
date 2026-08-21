@@ -42,6 +42,9 @@ Java switch supports only:
 
 **Properties**
 - A `default` clause is **not required**.
+- In a regular switch statements or expressions, default cannot be combined with any other case labels. 
+  - If default label is present, it must be on a separate from other case labels.
+  -  for a switch with pattern matching, the JLS explicitly allows case null, default label, which combines null and default.
 
 A type of switch's selector expression **cannot be a boolean**
 

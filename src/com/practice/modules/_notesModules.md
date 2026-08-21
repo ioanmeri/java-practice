@@ -10,6 +10,8 @@
 - A modular jar placed on the module-path results in a named application module
 - If a package is available in a jar on the classpath as well as in another jar on the module-path, the one on the classpath is ignored.
 - If a module directly uses classes from another jar, then that jar has to be a module - either named or automatic
+- Modules are not allowed to have circular/cyclic dependencies
+  - e.g. Here, module `m$` requires module `_n` and module `_n` requires module `m$`. This is not allowed.
 
 ---
 
